@@ -111,7 +111,7 @@ router.get("/userlist", function (req, res, next) {
     })
   }
 });
-//订单管理接口（未完成）
+//订单管理接口
 router.get("/userorderlist", function (req, res, next) {
   let page = parseInt(req.param("page"));
   let pageSize = parseInt(req.param("pageSize"));
@@ -342,6 +342,7 @@ router.get('/imglist', function (req, res) {
 //轮播图删除接口
 router.post("/delimg", function (req, res, next) {
   var adminId = req.cookies.adminId, imgId = req.body.imgId;
+  console.log(adminId != undefined);
   if (adminId != undefined) {
     imgs.findOne({ imgId: imgId }, function (err, doc) {
       console.log(doc);
